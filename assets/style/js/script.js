@@ -18,6 +18,7 @@
 
 // searchFormEl.addEventListener('click' , handleSearchFormSumbit);
 // // searchFormEl.addEventListener('sumbit' , handleSearchFormSumbit);
+var weather = document.getElementById('results')
 var searchBtn = document.getElementById('search-button');
 var formInput = document.querySelector('.form-input');
 
@@ -51,7 +52,8 @@ function getOneCall(lat, lon) {
     })
     .then(function (data) {
       console.log(data)
-
+      displayWeather(data)
+      console.log("!!!")
     })
     .catch(function (error) {
       console.log(error)
@@ -59,8 +61,20 @@ function getOneCall(lat, lon) {
   ;
 }
 
-function getGiphy() {
-  var url = ``
+function displayWeather(data) {
+  
+  var temp = document.createElement('h2')
+  temp.textContent = `${data.current.temp}`
+  console.log(data.current.temp)
+  weather.appendChild(temp)
+
 }
+  
+  
+
+
+// function getGiphy() {
+//   var url = ``
+// }
 
 searchBtn.addEventListener('click', getLocation);
