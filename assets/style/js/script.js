@@ -1,26 +1,11 @@
 var temperature = document.getElementById("temperature");
 var windSpeed = document.getElementById("windSpeed");
-var gif = document.getElementById("gif");
+var cityName = document.getElementById("city-name");
+var gif = document.getElementById("gif-weather");
+
 var searchBtn = document.getElementById("search-button");
 var formInput = document.querySelector(".form-input");
-// function handleSearchFormSumbit(event) {
-//     event.preventDefault();
 
-//     var searchInputVal = document.querySelector('#search-input').val();
-//     var formatInputVal = document.querySelector('#format-input').val();
-
-//     if (!searchInputVal) {
-//         console.error("Man you're too cool! We don't know this band!")
-//         return;
-//     }
-
-//     var queryString = './results.html' + searchInputVal + '&format=' + formatInputVal;
-
-//     location.assign(queryString);
-// }
-
-// searchFormEl.addEventListener('click' , handleSearchFormSumbit);
-// // searchFormEl.addEventListener('sumbit' , handleSearchFormSumbit);
 
 function getLocation(event) {
   event.preventDefault();
@@ -44,24 +29,6 @@ function getLocation(event) {
     });
 }
 
-// function getOneCall(lat, lon) {
-//   var url = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=538ed13f02e5d219c8e772c473392370&units=imperial`;
-
-//   fetch(url)
-//     .then(function (response) {
-//       return response.json();
-//     })
-//     .then(function (data) {
-//       console.log(data)
-//       displayWeather(data)
-//       console.log("!!!")
-//     })
-//     .catch(function (error) {
-//       console.log(error)
-//     });
-//   ;
-// }
-
 function getGif(data) {
   // ZBs9xcD98EoukIlisPrNM7Uus5JLHOHH
 
@@ -83,20 +50,25 @@ function getGif(data) {
 
 function displayWeather(data) {
   var temp = document.createElement("h2");
+  temperature.innerHTML = "";
   temp.textContent = `${data.main.temp}`;
   // console.log(data.current.temp)
   temperature.appendChild(temp);
 
   var wind = document.createElement("h2");
+  windSpeed.innerHTML = "";
   wind.textContent = `${data.wind.speed}`;
   windSpeed.appendChild(wind);
+
 }
 
 function displayGif(data) {
   var createImage = document.createElement("img");
   var randomGif = data.data[Math.floor(Math.random() * data.data.length)];
+  gif.innerHTML = "";
   createImage.src = randomGif.images.original.url;
   gif.appendChild(createImage);
 }
 
 searchBtn.addEventListener("click", getLocation);
+

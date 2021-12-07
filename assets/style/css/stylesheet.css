@@ -13,12 +13,14 @@
   display: block;
 }
 
+
 h1 {
   border-bottom: 2px solid black;
   font-weight: bolder;
   font-size: xx-large;
 }
 
+#cityName,
 #temperature {
   font-weight: bold;
   font-size: x-large;
@@ -29,6 +31,8 @@ h1 {
   font-weight: bold;
   font-size: x-large;
 }
+
+
 
 #weather {
   border: 1px solid black;
