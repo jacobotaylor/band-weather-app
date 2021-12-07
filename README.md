@@ -14,7 +14,7 @@ We built this site using Api's, JS, Bulma, Css and Html. We thought of this idea
 
 ### Visuals
 
-![Screenshot of Site](assets\Weather Dashboard.png)
+![Screenshot of Site](assets/WeatherDashboard.png)
 
 ### Usage
 
