@@ -1,9 +1,11 @@
 html, body {
     margin: 0;
-    
+    height: 100vh;
 }
 html{
-    background-color: none;
+    background-color: #949494 ;
+    
+
 }
 
 .card {
