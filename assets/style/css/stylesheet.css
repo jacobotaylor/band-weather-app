@@ -1,8 +1,14 @@
+html, body {
+    margin: 0;
+    height: 100%;
+}
+
 .card {
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
   border-radius: 10px;
   width: 50vw;
   padding: 20px;
+  font-family:monospace ;
 }
 
 #formcenter {
@@ -15,19 +21,26 @@
 
 
 h1 {
-  border-bottom: 2px solid black;
+  
   font-weight: bolder;
+  padding: 10px;
   font-size: xx-large;
+}
+
+h2 {
+    font-family: monospace;
+    
 }
 
 #cityName,
 #temperature {
   font-weight: bold;
   font-size: x-large;
+  border-bottom: 2px solid black;
 }
 
 #windSpeed {
-  border-top: 2px solid blue;
+  
   font-weight: bold;
   font-size: x-large;
 }
@@ -39,4 +52,15 @@ h1 {
   padding: 10px;
   font-size: xx-large;
   font-weight: bolder;
+}
+
+body {
+    background-color: #949494 ;
+
+}
+
+header {
+    background-color: #36454F;
+    border-bottom: 2px solid black;
+    color: tomato;
 }
