@@ -32,7 +32,7 @@ function getLocation(event) {
 function getGif(data) {
   // ZBs9xcD98EoukIlisPrNM7Uus5JLHOHH
 
-  var url = `https://api.giphy.com/v1/gifs/search?q=${data.weather[0].main.toLowerCase()}&rating=pg&limit=5&api_key=ZBs9xcD98EoukIlisPrNM7Uus5JLHOHH`;
+  var url = `https://api.giphy.com/v1/gifs/search?q=${data.weather[0].main.toLowerCase()}&rating=pg&limit=50&api_key=ZBs9xcD98EoukIlisPrNM7Uus5JLHOHH`;
   console.log(url);
 
   fetch(url)
