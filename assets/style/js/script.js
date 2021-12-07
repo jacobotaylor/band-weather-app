@@ -2,13 +2,32 @@
 var weather = document.getElementById('results')
 var searchBtn = document.getElementById('search-button');
 var formInput = document.querySelector('.form-input');
+// function handleSearchFormSumbit(event) {
+//     event.preventDefault();
 
-function getLocation (event) {
+//     var searchInputVal = document.querySelector('#search-input').val();
+//     var formatInputVal = document.querySelector('#format-input').val();
+
+//     if (!searchInputVal) {
+//         console.error("Man you're too cool! We don't know this band!")
+//         return;
+//     }
+
+//     var queryString = './results.html' + searchInputVal + '&format=' + formatInputVal;
+
+//     location.assign(queryString);
+// }
+
+// searchFormEl.addEventListener('click' , handleSearchFormSumbit);
+// // searchFormEl.addEventListener('sumbit' , handleSearchFormSumbit);
+
+
+function getLocation(event) {
   event.preventDefault();
-  var searchCity = formInput.value.trim()
+  var searchCity = formInput.value.trim();
   console.log(searchCity);
 
-  var url = `http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=538ed13f02e5d219c8e772c473392370&units=imperial`
+  var url = `http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=538ed13f02e5d219c8e772c473392370&units=imperial`;
 
   fetch(url)
     .then(function (response) {
@@ -19,11 +38,11 @@ function getLocation (event) {
       displayWeather(data);
       getGif(data);
       // getOneCall(data.coord.lat , data.coord.lon);
+
     })
     .catch(function (error) {
-      console.log(error)
+      console.log(error);
     });
-  ;
 }
 
 // function getOneCall(lat, lon) {
@@ -58,11 +77,11 @@ function getGif(data) {
     .then(function (data) {
       console.log(data)
       displayGif(data);
+
     })
     .catch(function (error) {
-      console.log(error)
+      console.log(error);
     });
-  ;
 }
 
 function displayWeather(data) {
@@ -83,4 +102,5 @@ function displayGif(data) {
 
 }
 
-searchBtn.addEventListener('click', getLocation);
+
+searchBtn.addEventListener("click", getLocation);
