@@ -1,0 +1,38 @@
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  width: 50vw;
+  padding: 20px;
+}
+
+#formcenter {
+  display: block;
+}
+
+#search-button {
+  display: block;
+}
+
+h1 {
+  border-bottom: 2px solid black;
+  font-weight: bolder;
+  font-size: xx-large;
+}
+
+#temperature {
+  font-weight: bold;
+  font-size: x-large;
+}
+
+#windSpeed {
+  border-top: 2px solid blue;
+  font-weight: bold;
+  font-size: x-large;
+}
+
+#weather {
+  border: 1px solid black;
+  padding: 10px;
+  font-size: xx-large;
+  font-weight: bolder;
+}
