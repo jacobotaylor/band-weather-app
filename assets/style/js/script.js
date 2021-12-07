@@ -1,7 +1,6 @@
-
-var weather = document.getElementById('results')
-var searchBtn = document.getElementById('search-button');
-var formInput = document.querySelector('.form-input');
+var weather = document.getElementById("results");
+var searchBtn = document.getElementById("search-button");
+var formInput = document.querySelector(".form-input");
 // function handleSearchFormSumbit(event) {
 //     event.preventDefault();
 
@@ -21,7 +20,6 @@ var formInput = document.querySelector('.form-input');
 // searchFormEl.addEventListener('click' , handleSearchFormSumbit);
 // // searchFormEl.addEventListener('sumbit' , handleSearchFormSumbit);
 
-
 function getLocation(event) {
   event.preventDefault();
   var searchCity = formInput.value.trim();
@@ -34,11 +32,10 @@ function getLocation(event) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data)
+      console.log(data);
       displayWeather(data);
       getGif(data);
       // getOneCall(data.coord.lat , data.coord.lon);
-
     })
     .catch(function (error) {
       console.log(error);
@@ -64,10 +61,9 @@ function getLocation(event) {
 // }
 
 function getGif(data) {
-
   // ZBs9xcD98EoukIlisPrNM7Uus5JLHOHH
 
-  var url = `https://api.giphy.com/v1/gifs/search?q=${data.weather[0].main.toLowerCase()}&rating=pg&limit=5&api_key=ZBs9xcD98EoukIlisPrNM7Uus5JLHOHH`
+  var url = `https://api.giphy.com/v1/gifs/search?q=${data.weather[0].main.toLowerCase()}&rating=pg&limit=5&api_key=ZBs9xcD98EoukIlisPrNM7Uus5JLHOHH`;
   console.log(url);
 
   fetch(url)
@@ -75,9 +71,8 @@ function getGif(data) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data)
+      console.log(data);
       displayGif(data);
-
     })
     .catch(function (error) {
       console.log(error);
@@ -85,22 +80,21 @@ function getGif(data) {
 }
 
 function displayWeather(data) {
-  var temp = document.createElement('h2')
-  temp.textContent = `${data.main.temp}`
+  var temp = document.createElement("h2");
+  temp.textContent = `${data.main.temp}`;
   // console.log(data.current.temp)
-  weather.appendChild(temp)
+  weather.appendChild(temp);
 
-  var wind = document.createElement('h2')
-  wind.textContent = `${data.wind.speed}`
-  weather.appendChild(wind)
+  var wind = document.createElement("h2");
+  wind.textContent = `${data.wind.speed}`;
+  weather.appendChild(wind);
 }
-  
+
 function displayGif(data) {
-  var createImage = document.createElement('img')
-  createImage.src = data.data[0].images.original.url;
-  weather.appendChild(createImage)
-
+  var createImage = document.createElement("img");
+  var randomGif = data.data[Math.floor(Math.random() * data.data.length)];
+  createImage.src = randomGif.images.original.url;
+  weather.appendChild(createImage);
 }
-
 
 searchBtn.addEventListener("click", getLocation);
