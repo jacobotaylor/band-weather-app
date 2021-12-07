@@ -1,4 +1,6 @@
-var weather = document.getElementById("results");
+var temperature = document.getElementById("temperature");
+var windSpeed = document.getElementById("windSpeed");
+var gif = document.getElementById("gif");
 var searchBtn = document.getElementById("search-button");
 var formInput = document.querySelector(".form-input");
 // function handleSearchFormSumbit(event) {
@@ -83,18 +85,18 @@ function displayWeather(data) {
   var temp = document.createElement("h2");
   temp.textContent = `${data.main.temp}`;
   // console.log(data.current.temp)
-  weather.appendChild(temp);
+  temperature.appendChild(temp);
 
   var wind = document.createElement("h2");
   wind.textContent = `${data.wind.speed}`;
-  weather.appendChild(wind);
+  windSpeed.appendChild(wind);
 }
 
 function displayGif(data) {
   var createImage = document.createElement("img");
   var randomGif = data.data[Math.floor(Math.random() * data.data.length)];
   createImage.src = randomGif.images.original.url;
-  weather.appendChild(createImage);
+  gif.appendChild(createImage);
 }
 
 searchBtn.addEventListener("click", getLocation);

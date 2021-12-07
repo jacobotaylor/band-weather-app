@@ -25,25 +25,44 @@
   </head>
 
   <body>
-    <header>
+    <header class="column has-text-centered">
       <h1>The Weather Band</h1>
     </header>
     <main class="columns">
-      <section class="column is-6 is-offset-4">
-        <h2>Weather Search</h2>
-        <form>
-          <input class="form-input" type="text" placeholder="City" />
-          <button id="search-button" class="searchBtn button is-success">Search</button>
-        </form>
-      </section>
-
-      <section class="columns">
-        
-        <div id="results" class="column is-6 is-offset-4">
-          <h2>temp</h2>
+      <section class="column is-desktop">
+        <div class="column has-text-centered">
+          <h2>Weather Search</h2>
+          <form class="column is-4 is-offset-5">
+            <input
+              id="formcenter"
+              class="form-input"
+              type="text"
+              placeholder="City"
+            />
+            <button id="search-button" class="searchBtn button is-success">
+              Search
+            </button>
+          </form>
         </div>
       </section>
     </main>
+    <section class="has-text-centered">
+      <div class="column is-4 is-offset-4">
+        <div class="card">
+          <h2 id="weather">Weather</h2>
+          <h3 id="temperature">Temperature</h3>
+          <h3 id="windSpeed">Wind Speed</h3>
+        </div>
+      </div>
+    </section>
+
+    <section class="has-text-centered">
+      <div id="gifSize" class="column is-4 is-offset-4">
+        <div id="gif" class="card">
+          <h2>Gif me the Weather</h2>
+        </div>
+      </div>
+    </section>
 
     <!-- JavaScript File -->
     <script src="./assets/style/js/script.js"></script>
@@ -51,5 +70,4 @@
 
   <!-- jQuery Link -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-
 </html>
