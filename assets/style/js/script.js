@@ -12,7 +12,7 @@ function getLocation(event) {
   var searchCity = formInput.value.trim();
   console.log(searchCity);
 
-  var url = `http://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=538ed13f02e5d219c8e772c473392370&units=imperial`;
+  var url = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=538ed13f02e5d219c8e772c473392370&units=imperial`;
 
   fetch(url)
     .then(function (response) {
