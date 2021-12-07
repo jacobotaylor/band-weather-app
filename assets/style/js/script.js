@@ -1,5 +1,7 @@
-// var searchFormEl = document.querySelector('#search-form');
 
+var weather = document.getElementById('results')
+var searchBtn = document.getElementById('search-button');
+var formInput = document.querySelector('.form-input');
 // function handleSearchFormSumbit(event) {
 //     event.preventDefault();
 
@@ -18,9 +20,7 @@
 
 // searchFormEl.addEventListener('click' , handleSearchFormSumbit);
 // // searchFormEl.addEventListener('sumbit' , handleSearchFormSumbit);
-var weather = document.getElementById("results");
-var searchBtn = document.getElementById("search-button");
-var formInput = document.querySelector(".form-input");
+
 
 function getLocation(event) {
   event.preventDefault();
@@ -34,25 +34,50 @@ function getLocation(event) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      getOneCall(data.coord.lat, data.coord.lon);
+      console.log(data)
+      displayWeather(data);
+      getGif(data);
+      // getOneCall(data.coord.lat , data.coord.lon);
+
     })
     .catch(function (error) {
       console.log(error);
     });
 }
 
-function getOneCall(lat, lon) {
-  var url = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=538ed13f02e5d219c8e772c473392370&units=imperial`;
+// function getOneCall(lat, lon) {
+//   var url = `http://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=minutely,hourly&appid=538ed13f02e5d219c8e772c473392370&units=imperial`;
+
+//   fetch(url)
+//     .then(function (response) {
+//       return response.json();
+//     })
+//     .then(function (data) {
+//       console.log(data)
+//       displayWeather(data)
+//       console.log("!!!")
+//     })
+//     .catch(function (error) {
+//       console.log(error)
+//     });
+//   ;
+// }
+
+function getGif(data) {
+
+  // ZBs9xcD98EoukIlisPrNM7Uus5JLHOHH
+
+  var url = `https://api.giphy.com/v1/gifs/search?q=${data.weather[0].main.toLowerCase()}&rating=pg&limit=5&api_key=ZBs9xcD98EoukIlisPrNM7Uus5JLHOHH`
+  console.log(url);
 
   fetch(url)
     .then(function (response) {
       return response.json();
     })
     .then(function (data) {
-      console.log(data);
-      displayWeather(data);
-      console.log("!!!");
+      console.log(data)
+      displayGif(data);
+
     })
     .catch(function (error) {
       console.log(error);
@@ -60,21 +85,22 @@ function getOneCall(lat, lon) {
 }
 
 function displayWeather(data) {
-  var temp = document.createElement("h2");
-  var wind = document.createElement("h2");
-  var clouds = document.createElement("h2");
+  var temp = document.createElement('h2')
+  temp.textContent = `${data.main.temp}`
+  // console.log(data.current.temp)
+  weather.appendChild(temp)
 
-  temp.textContent = ("Temp: " + `${data.current.temp}`);
-  wind.textContent = ("Wind: " + `${data.current.wind_speed}`);
-  clouds.textContent = `${data.current.clouds}`;
-  console.log(data.current.temp);
-  weather.appendChild(temp);
-  weather.appendChild(wind);
-  weather.appendChild(clouds);
+  var wind = document.createElement('h2')
+  wind.textContent = `${data.wind.speed}`
+  weather.appendChild(wind)
+}
+  
+function displayGif(data) {
+  var createImage = document.createElement('img')
+  createImage.src = data.data[0].images.original.url;
+  weather.appendChild(createImage)
+
 }
 
-// function getGiphy() {
-//   var url = ``
-// }
 
 searchBtn.addEventListener("click", getLocation);
