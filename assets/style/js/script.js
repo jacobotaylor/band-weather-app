@@ -1,5 +1,5 @@
 var temperature = document.getElementById("temperature");
-var savedData = document.getElementById("savedInfo");
+
 var windSpeed = document.getElementById("windSpeed");
 var gif = document.getElementById("gif-weather");
 var searchBtn = document.getElementById("search-button");
@@ -14,6 +14,15 @@ function getLocation(event) {
   citySearched.push(searchCity)
 
   localStorage.setItem('location', JSON.stringify(citySearched))
+  var storedItem = localStorage.getItem('location');
+  var test = JSON.parse(storedItem)
+ 
+//  var ul = document. getElementById("savedInfo");
+// var li = document. createElement("li");
+// li. appendChild(document.createTextNode(test));
+// ul. appendChild(li);
+
+
 
   
   
