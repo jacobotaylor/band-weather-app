@@ -45,12 +45,12 @@ function getGif(data) {
 function displayWeather(data) {
   var temp = document.createElement("h2");
   temperature.innerHTML = "";
-  temp.textContent = `${data.main.temp}`;
+  temp.textContent = `${Math.round(data.main.temp)}° F`;
   temperature.appendChild(temp);
 
   var wind = document.createElement("h2");
   windSpeed.innerHTML = "";
-  wind.textContent = `${data.wind.speed}`;
+  wind.textContent = `${data.wind.speed} MPH`;
   windSpeed.appendChild(wind);
 
 }
