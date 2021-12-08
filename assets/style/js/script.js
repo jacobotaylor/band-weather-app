@@ -1,11 +1,8 @@
 var temperature = document.getElementById("temperature");
 var windSpeed = document.getElementById("windSpeed");
-var cityName = document.getElementById("city-name");
 var gif = document.getElementById("gif-weather");
-
 var searchBtn = document.getElementById("search-button");
 var formInput = document.querySelector(".form-input");
-
 
 function getLocation(event) {
   event.preventDefault();
@@ -22,7 +19,6 @@ function getLocation(event) {
       console.log(data);
       displayWeather(data);
       getGif(data);
-      // getOneCall(data.coord.lat , data.coord.lon);
     })
     .catch(function (error) {
       console.log(error);
@@ -30,8 +26,6 @@ function getLocation(event) {
 }
 
 function getGif(data) {
-  // ZBs9xcD98EoukIlisPrNM7Uus5JLHOHH
-
   var url = `https://api.giphy.com/v1/gifs/search?q=${data.weather[0].main.toLowerCase()}&rating=pg&limit=50&api_key=ZBs9xcD98EoukIlisPrNM7Uus5JLHOHH`;
   console.log(url);
 
@@ -52,7 +46,6 @@ function displayWeather(data) {
   var temp = document.createElement("h2");
   temperature.innerHTML = "";
   temp.textContent = `${data.main.temp}`;
-  // console.log(data.current.temp)
   temperature.appendChild(temp);
 
   var wind = document.createElement("h2");
