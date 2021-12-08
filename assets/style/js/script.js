@@ -1,14 +1,22 @@
 var temperature = document.getElementById("temperature");
+var savedData = document.getElementById("savedInfo");
 var windSpeed = document.getElementById("windSpeed");
 var gif = document.getElementById("gif-weather");
 var searchBtn = document.getElementById("search-button");
 var formInput = document.querySelector(".form-input");
 
+var citySearched = JSON.parse(localStorage.getItem('location')) || [];
+
 function getLocation(event) {
   event.preventDefault();
   var searchCity = formInput.value.trim();
   console.log(searchCity);
+  citySearched.push(searchCity)
 
+  localStorage.setItem('location', JSON.stringify(citySearched))
+
+  
+  
   var url = `https://api.openweathermap.org/data/2.5/weather?q=${searchCity}&appid=538ed13f02e5d219c8e772c473392370&units=imperial`;
 
   fetch(url)
@@ -64,4 +72,5 @@ function displayGif(data) {
 }
 
 searchBtn.addEventListener("click", getLocation);
+
 
