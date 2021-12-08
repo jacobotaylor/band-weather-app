@@ -2,30 +2,33 @@
 
 ## Table Of Content
 
-- [Description](#Description)
-- [Visuals](#Visuals)
-- [Usage](#Usage)
-- [Acknowledgment](#Authors)
-- [Links](#Links)
+- [Description](#description)
+- [Visuals](#visuals)
+- [Usage](#usage)
+- [Acknowledgment](#authors)
+- [Links](#links)
 
-### Description
+## Description
 
-We built this site using Api's, JS, Bulma, Css and Html. We thought of this idea from scratch and decided it would be fun to create a project like this.
+We built this site using API's, JavaScript, Bulma, CSS and HTML. We thought of this idea from scratch and decided it would be fun to create a project like this.
 
-### Visuals
+## Visuals
 
 ![Screenshot of Site](assets/WeatherDashboard.png)
 
-### Usage
+## Usage
 
 This site is used to add some fun to getting the weather. You put a city name in the search field then hit search. You will then be presented with the current temperature and wind speed. Along with a gif representation of the forcast such as, Sunny, Clear, Raining, etc. Made for information and entertainment. 
 
-### Authors and acknowledgment
-Thank you to our team work working hard and taking the time to work over time to finish this project. Special thanks to Matt, Jacob, and Austin
+## Authors and acknowledgment
+Thank you to our team for working overtime to finish this project. Special thanks to Matt, Jacob, and Austin.
 
 
-### Links
+## Links
 
 
-[Repo] (https://github.com/jacobotaylor/band-weather-app)
-[WeatherDashBored] (https://jacobotaylor.github.io/band-weather-app/)
+[Repo] 
+(https://github.com/jacobotaylor/band-weather-app)
+
+[WeatherDashBored] 
+(https://jacobotaylor.github.io/band-weather-app/)
